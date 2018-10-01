@@ -1,10 +1,13 @@
 import random
-import testo
+import classes
 
 def fight(p, e):
 
-	turn = 0
-	print("Starting health:")
+	turn = 1
+	print(p)
+	print("\n===== VERSUS =====\n")
+	print(e)
+	print("\nStarting health:")
 
 	while True:
 
@@ -28,16 +31,18 @@ def fight(p, e):
 
 		# First fighter attacks
 		fcrit = random.randint(0, 100) < first.l
-		print(first.n + (" crits!" if fcrit else " attacks."))
-		second.h -= 2 * first.a - second.d if fcrit else first.a - second.d
+		dmg = 2 * first.a - second.d if fcrit else first.a - second.d
+		print(first.n + (" crits for " + str(dmg) + " damage!" if fcrit else " attacks for " + str(dmg) + " damage."))
+		second.h -= dmg
 		if second.h <= 0:
 			second.h = 0
 			break
 
 		# Second fighter attacks
 		scrit = random.randint(0, 100) < second.l
-		print(second.n + (" crits!" if fcrit else " attacks."))
-		first.h -= 2 * second.a - first.d if scrit else second.a - first.d
+		dmg = 2 * second.a - first.d if scrit else second.a - first.d
+		print(second.n + (" crits for " + str(dmg) + " damage!" if scrit else " attacks for " + str(dmg) + " damage."))
+		first.h -= dmg
 		if first.h <= 0:
 			first.h = 0
 			break
@@ -49,8 +54,8 @@ def fight(p, e):
 	print(p.n + " wins!" if p.h > 0 else e.n + " wins!")
 	return p.h > 0
 
-player = testo.Player(10, 2, 1, 5, 50, "Buton")
-enemy = testo.Enemy(10, 1, 1, 5, 50, "Sam")
+player = classes.Fighter(10, 2, 1, 5, 10, "Buton")
+enemy = classes.Fighter(10, 1, 1, 5, 10, "Sam")
 
 print()
 
