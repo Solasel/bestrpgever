@@ -33,8 +33,3 @@ def textBox(text):
         time.sleep(.01)
     print()
 
-
-
-
-    
-
