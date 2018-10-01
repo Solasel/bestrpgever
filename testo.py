@@ -34,9 +34,6 @@ def textBox(text):
         time.sleep(.01)
     print()
 
-   
-    
-
 def fight(p, e):
     battle = 1 #Determines whether or not
     firstTurn = 1 #Is it the first turn of the battle?
@@ -130,11 +127,3 @@ def fight(p, e):
     
     
 fight(player, monster)
-        
-    
-    
-    
-
-
-    
-
