@@ -33,7 +33,7 @@ class Place:
     def __str__(self):
         return "You have arrived to the amazing" + self.name + ". This is the description:" + self.desc
     
-placeareaplace = Place(1, 2)
+placeareaplace = Place(, )
 print(placeareaplace)
     
 player = Player(10, 10, 2, 10, 1, 'Will')
