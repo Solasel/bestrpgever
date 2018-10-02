@@ -21,3 +21,12 @@ class Place:
 	def __str__(self):
 		return self.name + ": " + self.type + "\n- " + self.desc
 
+class Map:
+	def __init__(self, n, w, h, s):
+		self.name = n
+		self.width = w
+		self.height = h
+		self.grid = [[None] * w] * h
+
+		self.start_tile = s
+
