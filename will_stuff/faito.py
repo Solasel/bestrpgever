@@ -11,13 +11,13 @@ def fight(p, e):
 
 	while True:
 
-		print(str(p.n) + ": " + str(p.h) + "\n" + str(e.n) + ": " + str(e.h) + "\n")
+		print(str(p.name) + ": " + str(p.health) + "\n" + str(e.name) + ": " + str(e.health) + "\n")
 
 		print("Turn " + str(turn) + ":")
 
 		# Roll to determine who goes first
-		proll = p.s + random.randint(1, 6)
-		eroll = e.s + random.randint(1, 6)
+		proll = p.speed + random.randint(1, 6)
+		eroll = e.speed + random.randint(1, 6)
 
 		# Assign first and second based on rolls
 		first = p if proll > eroll else e
@@ -30,29 +30,29 @@ def fight(p, e):
 			second = e if tiebreak == 1 else p
 
 		# First fighter attacks
-		fcrit = random.randint(0, 100) < first.l
-		dmg = 2 * first.a - second.d if fcrit else first.a - second.d
-		print(first.n + (" crits for " + str(dmg) + " damage!" if fcrit else " attacks for " + str(dmg) + " damage."))
-		second.h -= dmg
-		if second.h <= 0:
-			second.h = 0
+		fcrit = random.randint(0, 100) < first.luck
+		dmg = 2 * first.attack - second.defense if fcrit else first.attack - second.defense
+		print(first.name + (" crits for " + str(dmg) + " damage!" if fcrit else " attacks for " + str(dmg) + " damage."))
+		second.health -= dmg
+		if second.health <= 0:
+			second.health = 0
 			break
 
 		# Second fighter attacks
-		scrit = random.randint(0, 100) < second.l
-		dmg = 2 * second.a - first.d if scrit else second.a - first.d
-		print(second.n + (" crits for " + str(dmg) + " damage!" if scrit else " attacks for " + str(dmg) + " damage."))
-		first.h -= dmg
-		if first.h <= 0:
-			first.h = 0
+		scrit = random.randint(0, 100) < second.luck
+		dmg = 2 * second.attack - first.defense if scrit else second.attack - first.defense
+		print(second.name + (" crits for " + str(dmg) + " damage!" if scrit else " attacks for " + str(dmg) + " damage."))
+		first.health -= dmg
+		if first.health <= 0:
+			first.health = 0
 			break
 
 		turn += 1
 
 	# Print final health values.
-	print(str(p.n) + ": " + str(p.h) + "\n" + str(e.n) + ": " + str(e.h) + "\n")
-	print(p.n + " wins!" if p.h > 0 else e.n + " wins!")
-	return p.h > 0
+	print(str(p.name) + ": " + str(p.health) + "\n" + str(e.name) + ": " + str(e.health) + "\n")
+	print(p.name + " wins!" if p.health > 0 else e.name + " wins!")
+	return p.health > 0
 
 player = classes.Fighter(10, 2, 1, 5, 10, "Buton")
 enemy = classes.Fighter(10, 1, 1, 5, 10, "Sam")
