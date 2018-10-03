@@ -1,5 +1,3 @@
-import random, time
-
 class Fighter:
 	def __init__(self, h, a, d, s, l, n):
 		self.health = h
