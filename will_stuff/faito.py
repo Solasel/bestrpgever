@@ -9,6 +9,13 @@ def fight(p, e):
 	print(e)
 	print("\nStarting health:")
 
+	if (p.health == 0):
+		print(p.name + " is already dead!")
+		return False
+	if (e.health == 0):
+		print(e.name + " is already dead!")
+		return True
+
 	while True:
 
 		print(str(p.name) + ": " + str(p.health) + "\n" + str(e.name) + ": " + str(e.health) + "\n")
