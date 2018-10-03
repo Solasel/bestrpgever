@@ -62,11 +62,22 @@ def fight(p, e):
 	return p.health > 0
 
 player = classes.Fighter(10, 2, 1, 5, 10, "Buton")
-enemy = classes.Fighter(10, 1, 1, 5, 10, "Sam")
+enemy = classes.Fighter(10, 1, 1, 5, 50, "Sam")
 
 print()
 
 fight(player, enemy)
 
+print()
+
+def potion(p):
+	p.health += 20
+
+pot = classes.Item(potion)
+
+print(player.name + " uses a potion!")
+print(player)
+pot.use(player)
+print(player)
 print()
 

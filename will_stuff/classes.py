@@ -50,3 +50,10 @@ class Map:
 
 		self.start_tile = s
 
+class Item:
+	def __init__(self, u):
+		self.use = u
+
+	def use(self):
+		self.use()
+
